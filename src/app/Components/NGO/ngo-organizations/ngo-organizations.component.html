@@ -1,0 +1,18 @@
+
+<br>
+<div class="container" *ngIf="show">
+  <div class="row prof-card">
+      <div class="col-lg-3 d-flex justify-content-center"  *ngFor="let ngo of ngolist">
+          <div class="card mb-4" style="width: 18rem;">
+              <img class="card-img-top img1" src="https://www.clker.com/cliparts/2/P/Z/Y/O/i/institution-icon-hi.png" alt="Card image cap">
+              <div class="card-body text-center">
+                <h5 class="card-title">{{ngo.ngo_Name}}</h5>
+                <h5 class="card-title">{{ngo.state}}</h5>
+                <h5 class="card-title">{{ngo.city}}</h5>
+                <h5 class="card-title">{{ngo.contact}}</h5>
+                <h5 class="card-title">{{ngo.email}}</h5>
+              </div>
+            </div>
+        </div>
+  </div>
+</div>

@@ -1,0 +1,163 @@
+<!-- <div class="container" *ngIf="show">
+    <div class="row">
+        <div class="col-lg-3 d-flex justify-content-center"  *ngFor="let ngo of ngolist">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{ngo.ngo_Name}}</h5>
+                  <h5 class="card-title">{{ngo.state}}</h5>
+                  <h5 class="card-title">{{ngo.city}}</h5>
+                  <button class="btn btn-primary" (click)="GetNgoById(ngo.ngo_Id)">Deatils</button>
+                </div>
+              </div>
+            </div>
+    </div>
+</div> -->
+
+<br>
+<div class="container" *ngIf="show">
+  <div class="row prof-card">
+      <div class="col-lg-3 d-flex justify-content-center"  *ngFor="let ngo of ngolist">
+          <div class="card mb-4" style="width: 18rem;">
+              <img class="card-img-top img1" src="https://www.clker.com/cliparts/2/P/Z/Y/O/i/institution-icon-hi.png" alt="Card image cap">
+              <div class="card-body text-center">
+                <h5 class="card-title">{{ngo.ngo_Name}}</h5>
+                <h5 class="card-title">{{ngo.state}}</h5>
+                <h5 class="card-title">{{ngo.city}}</h5>
+                <!-- <div class="button1"> -->
+                  <button  class="btn button1"  href="javascript:void" (click)="GetNgoById(ngo.ngo_Id)">Deatils</button>
+                <!-- </div> -->
+              </div>
+            </div>
+        </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- <div class="container" *ngIf="!show">
+{{ngo}}
+<button (click)="Aproove_Ngo(ngo.ngo_Id)" class="btn btn-dark">Aproove</button>
+</div> -->
+
+<div class="container" *ngIf="!show">
+  <div class="main-body">
+        <div class="row gutters-sm">
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                  <img src="https://www.clker.com/cliparts/2/P/Z/Y/O/i/institution-icon-hi.png" alt="Admin" class="rounded-circle" width="150">
+                  <div class="mt-3">
+                    <h4>{{ngo.ngo_Name}}</h4>
+                    <p class="text-muted font-size-sm">{{ngo.address}},{{ngo.city}},{{ngo.state}},{{ngo.pincode}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Point of Contact</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{ngo. point_of_Contact}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Contact</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{ngo.contact}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Ngo Email</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{ngo.ngo_Email}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">POC Identity Proof Name</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    {{ngo.identity_Proof}}
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">POC Identity Proof Image</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <button type="button" class="btn button1" data-bs-toggle="modal" data-bs-target="#exampleModal" style="color: black;">
+                      View Document
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header text-center">
+                            <h5 class="modal-title" id="exampleModalLabel">Identity Proof Image</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body justify-content-center">
+                            <img  alt="Admin"     [src]="poc_identity_image"  width="470">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Registration Paper</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <button type="button" class="btn button1" data-bs-toggle="modal" data-bs-target="#exampleModal" style="color: black;">
+                      View Document
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header text-center">
+                            <h5 class="modal-title" id="exampleModalLabel">Registration Page</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body justify-content-center">
+                            <img  alt="Admin"     [src]="reg_paper_image"  width="470">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button  class="btn btn-dark" disabled *ngIf="ngo.is_Aprooved">Aprooved</button>
+          <button (click)="Aproove_Ngo(ngo.ngo_Id)" class="btn btn-dark" *ngIf="!ngo.is_Aprooved">Aproove</button>
+        </div>
+      </div>
+  </div>
+

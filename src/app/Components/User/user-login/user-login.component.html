@@ -1,0 +1,37 @@
+<body>
+      <form #regform="ngForm" novalidate (ngSubmit)="UserLogin(regform.value)">
+        <div class="shdw">
+        <h1>User Login</h1>
+        <pre></pre>
+        <div class="form-group">
+            <label for="email">Email</label><br>
+            <input #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="text" name="email" class="form-control" placeholder="name@gmail.com" ngModel>
+            <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+                <p *ngIf="email.hasError('required')">Email is required</p>
+                <p *ngIf="email.hasError('pattern')">Enter valid email</p>
+            </div>
+        </div>
+        <pre></pre>
+        <div class="form-group">
+            <label for="password">Password</label><br> 
+            <input #password="ngModel" type="password" required name="password" class="form-control" placeholder="Enter your Password" ngModel>
+            <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+                <p *ngIf="password.hasError('required')">Password is required</p>
+                <p *ngIf="password.hasError('minlength')">Minimum length should be atleast 8</p>
+            </div>
+        </div>
+        <pre></pre>
+        <div class="form-submit">
+            <button type="submit" class="btn btn-primary" [disabled]="!regform.valid" value="submit" >Submit</button>
+        </div>
+        <div class="text-danger text-center">
+            {{msg}}
+        </div>
+        <div  class="text-center">
+            <a style="color: red;" [routerLink]="['/forgetpassword']">Forgot Password ?</a>
+        </div>
+    </div>
+    </form>
+</body>
+<router-outlet></router-outlet>
+    

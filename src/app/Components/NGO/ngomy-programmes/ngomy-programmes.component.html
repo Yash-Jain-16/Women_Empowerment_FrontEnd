@@ -1,0 +1,35 @@
+<br>
+<br>
+<div class="container">
+<table class="table table-hover" style="background-image:linear-gradient(to right, rgba(255, 127, 0,0.6), rgba(50,205,50,0.7));">
+  <thead      class="text-center"         style="background-image:linear-gradient(to right, rgba(255, 127, 0,1.0), rgba(50,205,50,1.0));">
+    <tr>
+        <th scope="col">Course Id</th>
+      <th scope="col">Sector</th>
+      <th scope="col">Course Name</th>
+      <th scope="col">Intake</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Is Active</th>
+    </tr>
+  </thead>
+  <tbody class="text-center">
+    <tr  *ngFor="let programmes of ngo_course_list">
+        <td>{{programmes.course_Id}}</td>
+      <td>{{programmes.sector}}</td>
+      <td>{{programmes.coursename}}</td>
+      <td>{{programmes.intake}}</td>
+      <td>{{programmes.start_Date | date}}</td>
+      <td>{{programmes.end_Date | date }}</td>
+      <td>{{programmes.is_Active}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

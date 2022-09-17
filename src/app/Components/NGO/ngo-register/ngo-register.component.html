@@ -1,0 +1,173 @@
+<body>
+<form #regform="ngForm" novalidate (ngSubmit)="onSubmit(regform.value)">
+    <div class="row no-gutters">
+        <h1>NGO Registration</h1>
+        <!-- Left -->
+        <div class="col-md-6 no-gutters">
+            <div class="left-div">
+                <pre></pre>
+                <div class="form-group">
+                    <label for="ngo_Name">NGO Name</label><br>
+                    <input #ngo_Name="ngModel" required type="text" name="ngo_Name" class="form-control" placeholder="Enter your address" ngModel>
+                    <div *ngIf="ngo_Name.touched && ngo_Name.invalid" class="alert alert-danger">
+                        <p *ngIf="ngo_Name.hasError('required')">Name of NGO is required</p>
+                    </div>
+                </div>
+                <pre></pre>
+                <div class="form-group">
+                    <label for="point_of_Contact">Point of Contact</label><br>
+                    <input #point_of_Contact="ngModel" required minlength="2" maxlength="14" type="text" name="point_of_Contact" class="form-control" placeholder="Mention point of contact" ngModel>
+                    <div *ngIf="point_of_Contact.touched && point_of_Contact.invalid" class="alert alert-danger">
+                        <p *ngIf="point_of_Contact.hasError('required')">User Id is required</p>
+                        <!-- <p *ngIf="point_of_Contact.hasError('minlength')">Minimum length should be atleast 2</p> -->
+                    </div>
+                </div>
+                <pre></pre>
+                <div class="form-group">
+                    <label for="ngo_Email">Email of NGO</label><br>
+                    <div class="input-group has-validation">
+                        <input #ngo_Email="ngModel" required type="email" name="ngo_Email" class="form-control" placeholder="name@gmail.com" ngModel>
+                        <div *ngIf="ngo_Email.touched && ngo_Email.invalid" class="alert alert-danger">
+                            <p *ngIf="ngo_Email.hasError('required')">Name is required</p>
+                        </div>
+                    </div>
+                </div>
+                <pre></pre>
+                <div class="form-group">
+                    <label for="contact">Phone Number</label><br>
+                    <input #contact="ngModel" required minlength="10" maxlength="10" type="text" name="contact" class="form-control" placeholder="Enter your Phone Number" ngModel>
+                    <div *ngIf="contact.touched && contact.invalid" class="alert alert-danger">
+                        <p *ngIf="contact.hasError('required')">Number is required</p>
+                        <p *ngIf="contact.hasError('minlength')">Invalid Phone Number</p>
+                    </div>
+                </div>
+                <pre></pre>
+                <div class="form-group">
+                    <label for="telephone">Telephone Number</label><br>
+                    <input #telephone="ngModel" required minlength="8" maxlength="8" type="text" name="telephone" class="form-control" placeholder="Enter your Telephone Number" ngModel>
+                    <div *ngIf="telephone.touched && telephone.invalid" class="alert alert-danger">
+                        <p *ngIf="telephone.hasError('minlength')">Invalid Phone Number</p>
+                    </div>
+                </div>
+                <pre></pre>
+                <div class="form-group">
+                    <label for="address">Address</label><br>
+                    <input #address="ngModel" required type="text" name="address" class="form-control" placeholder="Enter your address" ngModel>
+                    <div *ngIf="address.touched && address.invalid" class="alert alert-danger">
+                        <p *ngIf="address.hasError('required')">Address is required</p>
+                    </div>
+                </div>
+                <pre></pre>
+                <div class="form-group">
+                    <label for="state">State</label><br>
+                    <div class="textbox">
+                        <select #state="ngModel" id="state" name="state" class="form-control" required ngModel>
+                            <option disabled selected>Enter your state</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                            <option value="Daman and Diu">Daman and Diu</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Lakshadweep">Lakshadweep</option>
+                            <option value="Puducherry">Puducherry</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Right -->
+        <div class="col-md-6 no-gutters">
+            <div class="right-div">
+                <pre></pre>
+                <div class="form-group">
+                    <label for="city">City</label><br>
+                    <input #city="ngModel" required type="text" name="city" class="form-control" placeholder="Enter your city" ngModel>
+                    <div *ngIf="city.touched && city.invalid" class="alert alert-danger">
+                        <p *ngIf="city.hasError('required')">Please mention your city</p>
+                    </div>
+                </div>
+                <pre></pre>
+                <div class="form-group">
+                    <label for="pincode">Pincode</label><br>
+                    <input #pincode="ngModel" required minlength="6" type="text" name="pincode" class="form-control" placeholder="Enter your Pincode" ngModel>
+                    <div *ngIf="pincode.touched && pincode.invalid" class="alert alert-danger">
+                        <p *ngIf="pincode.hasError('required')">Pincode is required</p>
+                        <p *ngIf="pincode.hasError('minlength')">Invalid Pincode</p>
+                    </div>
+                </div>
+                <pre></pre>
+                <div class="form-group">
+                    <label for="identity_Proof">Identity Proof</label><br>
+                    <div class="textbox">
+                        <select #identity_Proof="ngModel" id="identity_Proof" name="identity_Proof" class="form-control" required ngModel>
+                            <option disabled selected>Select id proof</option>
+                            <option value="PAN Card">PAN Card</option>
+                            <option value="Aadhar Card">Aadhar Card</option>
+                            <option value="Birth Certificate">Birth Certificate</option>
+                            <option value="Driving License">Driving License</option>
+                            <option value="Ration Card">Ration Card</option>
+                            <option value="Passport">Passport</option>
+                            <option value="Election Card">Election Card</option>
+                        </select>
+                    </div>
+                </div>
+                <pre></pre>
+                <div class="form-group"><label for="identity_Proof_Image">Upload identity proof</label> <br>
+                    <!-- <label for="identity_Proof_Image">Select a file:</label> <br> -->
+                    <input #identity_Proof_Image="ngModel" type="file" id="identity_Proof_Image" name="identity_Proof_Image" class="form-control" ngModel (change)="onChange2($event)">
+                </div>
+                <pre></pre>
+                <div class="form-group">
+                    <label for="date_of_Register">Date of Register</label><br>
+                    <input #date_of_Register="ngModel" type="date" name="date_of_Register" class="form-control" ngModel>
+                    <div *ngIf="date_of_Register.touched && date_of_Register.invalid" class="alert alert-danger">
+                        <p *ngIf="date_of_Register.hasError('required')">DOB is required</p>
+                    </div>
+                </div>
+                <pre></pre>
+                <div class="form-group"><label for="reg_Paper"> Register Paper</label> <br>
+                    <!-- <label for="reg_Paper">Select a file:</label> <br> -->
+                    <input #reg_Paper="ngModel" type="file" id="reg_Paper" name="reg_Paper" class="form-control" ngModel (change)="onChange1($event)">
+                </div>
+                <pre></pre>
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-primary" [disabled]="!regform.valid" value="submit" >Submit</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+</form>
+</body>

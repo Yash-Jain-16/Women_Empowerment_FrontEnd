@@ -1,0 +1,22 @@
+
+ 
+.carousel-item{
+
+    margin-top: -50px;
+    margin-bottom: -50px;
+   } 
+   
+   .row,.col-md-12 {
+       margin-right: -15px;
+       margin-left: -15px;
+   }
+   .col-md-12{
+       position: relative;
+       min-height: 1px;
+       padding-right: 15px;
+       padding-left: 15px;
+   }
+   .h4,.h2{
+   margin-top: 0;
+   margin-bottom: 0.5rem;
+   }

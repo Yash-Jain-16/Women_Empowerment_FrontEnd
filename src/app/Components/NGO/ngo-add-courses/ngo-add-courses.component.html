@@ -1,0 +1,54 @@
+   <body>
+            <form #regform="ngForm" novalidate (ngSubmit)="onSubmit(regform.value)">
+                <div class="shdw">
+                    <h1>Training Course</h1>
+                    <pre></pre>
+                    <div class="form-group"> 
+                        <label for="sector">Sector Name</label><br>
+                        <input #sector="ngModel" required minlength="2" maxlength="14" type="text" name="sector" class="form-control" placeholder="Enter sector name" ngModel>
+                        <div *ngIf="sector.touched && sector.invalid" class="alert alert-danger">
+                            <p *ngIf="sector.hasError('required')">Name of the sector must be specified</p>
+                            <p *ngIf="sector.hasError('minlength')">Minimum length should be atleast 2</p>
+                        </div>
+                    </div>
+                    <pre></pre>
+                    <div class="form-group"> 
+                        <label for="coursename">Course Name</label><br>
+                        <input #coursename="ngModel" required minlength="2" maxlength="14" type="text" name="coursename" class="form-control" placeholder="Enter course name" ngModel>
+                        <div *ngIf="coursename.touched && coursename.invalid" class="alert alert-danger">
+                            <p *ngIf="coursename.hasError('required')">First name is required</p>
+                            <p *ngIf="coursename.hasError('minlength')">Minimum length should be atleast 2</p>
+                        </div>
+                    </div>
+                    <pre></pre>
+                    <div class="form-group">
+                        <label for="intake">Total Intake</label><br>
+                        <input #intake="ngModel" required type="number" name="intake" class="form-control" placeholder="Enter course intake" ngModel>
+                        <div *ngIf="intake.touched && intake.invalid" class="alert alert-danger">
+                            <p *ngIf="intake.hasError('required')">Total intake must be specified</p>
+                        </div>
+                    </div>
+                    <pre></pre>
+                    <div class="form-group">
+                        <label for="start_date">Start Date</label><br>
+                        <input #start_date="ngModel" required type="date" name="start_date" class="form-control" ngModel>
+                        <div *ngIf="start_date.touched && start_date.invalid" class="alert alert-danger">
+                            <p *ngIf="start_date.hasError('required')">Please mention start date</p>
+                        </div>
+                    </div>
+                    <pre></pre>
+                    <div class="form-group">
+                        <label for="end_date">End Date</label><br>
+                        <input #end_date="ngModel" required type="date" name="end_date" class="form-control" ngModel>
+                        <div *ngIf="end_date.touched && end_date.invalid" class="alert alert-danger">
+                            <p *ngIf="end_date.hasError('required')">Please mention end date</p>
+                        </div>
+                    </div>
+                    <pre></pre>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary" [disabled]="!regform.valid" value="submit">Submit</button>
+                        <!-- <router-outlet></router-outlet> -->
+                    </div>
+                </div>
+            </form>
+<body>

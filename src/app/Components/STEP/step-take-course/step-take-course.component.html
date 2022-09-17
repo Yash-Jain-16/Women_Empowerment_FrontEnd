@@ -1,0 +1,56 @@
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-lg-3 d-flex justify-content-center"  *ngFor="let programmes of training_course_list">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{programmes.sector}}</h5>
+                  <h5 class="card-title">{{programmes.coursename}}</h5>
+                  <h5 class="card-title">{{programmes.ngo_Name}}</h5>
+                  <h5 class="card-title">{{programmes.state}}</h5>
+                  <h5 class="card-title">{{programmes.start_Date}}</h5>
+                  <h5 class="card-title">{{programmes.end_Date}}</h5>
+                  <h5 class="card-title">{{programmes.intake}}</h5>
+                  <h5 class="card-title">{{programmes.is_active}}</h5>
+                  <h5 class="card-title">{{programmes.ngo_Email}}</h5>
+                  <button (click)="TakeCourse(programmes.course_Id)" class="btn btn-dark"> Apply Here</button>
+                </div>
+              </div>
+          </div>
+    </div>
+</div> -->
+
+
+<br>
+<br>
+<div class="container">
+    <table class="table table-hover" style="background-image:linear-gradient(to right, rgba(255, 127, 0,0.6), rgba(50,205,50,0.7));">
+        <thead style="background-image:linear-gradient(to right, rgba(255, 127, 0,1.0), rgba(50,205,50,1.0));">
+    <tr>
+      <th scope="col">Sector</th>
+      <th scope="col">Course Name</th>
+      <th scope="col">Ngo Name</th>
+      <th scope="col">State</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Intake</th>
+      <th scope="col">Ngo Email</th>
+      <th scope="col">Apply Here</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let programmes of training_course_list">
+      <td>{{programmes.sector}}</td>
+      <td>{{programmes.coursename}}</td>
+      <td>{{programmes.ngo_Name}}</td>
+      <td>{{programmes.state}}</td>
+      <td>{{programmes.start_Date | date}}</td>
+      <td>{{programmes.end_Date | date }}</td>
+      <td>{{programmes.intake}}</td>
+      <td>{{programmes.ngo_Email}}</td>
+      <button (click)="TakeCourse(programmes.course_Id)" class="btn mt-1 mb-1" style="background-image:linear-gradient(to right, rgba(255, 127, 0,0.6), rgba(50,205,50,0.7));width: 100px ;"> Apply</button>
+    </tr>
+  </tbody>
+</table>
+</div>
+<br>
+<br>

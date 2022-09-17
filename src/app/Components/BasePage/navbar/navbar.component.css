@@ -1,0 +1,51 @@
+*{
+    font-family: 'Trebuchet MS';
+  }
+      .navbar-collapse{
+          background-image:linear-gradient(to right, rgba(255, 127, 0,1.0), rgba(50,205,50,1.0));
+        }
+      .nav-item{
+          color:rgb(7, 1, 14);
+          font-weight: bold;
+          font-size: 20px;
+          padding-left: 20px !important;
+          /* margin-left: 45px !important; */
+         
+  
+      }
+    
+      .logo{
+
+       margin-top: 1%;
+          font-size: 250%;
+          font-style: bold;
+          color:black ;
+          margin-left: 0cm;
+          margin-right: 6cm;
+       display: block;
+       text-align: center;
+       
+  
+  
+      }
+    
+    
+      .gif  {
+         
+          width:125px;
+          height:125px;
+        position: relative;
+        margin-top: 10px;
+          left:-80px;
+      }
+      .national_emblem{
+
+        margin-top: 10px;
+          margin-left: 643px;
+             margin-right: 564px;
+         width: 30px;
+          display: block;
+          text-align: center;
+       
+      }
+      

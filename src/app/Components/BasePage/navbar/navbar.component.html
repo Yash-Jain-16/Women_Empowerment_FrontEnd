@@ -1,0 +1,269 @@
+<div class="container-fluid">
+  
+
+
+<header>
+  
+  <div class="container">
+  <img  align="left"  class="gif" alt="assets/logo1.png" src="assets/logo1.png" >
+  
+
+
+
+<img   class="national_emblem" alt="assets/national emblem.png" src="assets/national_emblem.png">
+
+</div>
+<div class="logo">
+<h1 style="font-size:20px ;" >महिला एवं बाल विकास मंत्रालय</h1>
+<h1 style="font-size:30px ;"> MINISTRY OF WOMEN & CHILD DEVELOPMENT</h1></div>
+
+</header>
+
+
+
+
+
+
+
+
+<!-- ==================================Home navbar=================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="base">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- <div style="float:left ;"> -->
+      <ul class="navbar-nav navbar-left">
+        <li class="nav-item active">
+            <a class="nav-link"  href="javascript:void" (click)="init_step('base')">Home</a>
+          </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/aboutus']">AboutUs</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link"  href="javascript:void" (click)="init_step('step')" >STEP</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link"  href="javascript:void" (click)="init_step('ngo')">NGO</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link"  href="javascript:void" (click)="init_step('admin')" *ngIf="!isloggedin()">ADMIN</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/homefaq']">FAQ</a>
+        </li> 
+    </ul>
+    <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+    <!-- </div> -->
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item active justify-content-end" *ngIf="!isloggedin()">
+          <a class="nav-link" [routerLink]="['/userlogin']">Login</a>
+        </li>
+        <li class="nav-item active justify-content-end">
+          <a class="nav-link" [routerLink]="['/userregister']" *ngIf="!isloggedin()">Register</a>
+        </li> 
+        <li class="nav-item active justify-content-end"  *ngIf="isloggedin()">
+          <div class="dropdown">
+            <a class="nav-link dropdown-toggle nav-item" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              {{user_name()}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">  
+              <li class="nav-item active " *ngIf="isloggedin()">
+                <a class="nav-link" (click)="logout()" href="javascript:void">Logout</a>
+              </li> 
+            </ul>
+          </div>          
+        </li>
+        </ul>
+    </div>
+  </nav>
+
+
+
+<!--======================STEP Dashboard==========================================-->
+
+<nav class="navbar navbar-expand-lg navbar-light" *ngIf="step">
+  <!-- <a class="navbar-brand" href="#" >STEP</a> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ">
+      <li class="nav-item active">
+        <a class="nav-link"   href="javascript:void">STEP</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link"  (click)="init_step('base')" href="javascript:void">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/stepaboutus']">Aboutus</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/steptrainingsectors']">Training Sectors</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/steptrainingcourses']">Training Courses</a>
+      </li>
+      <li class="nav-item active" *ngIf="!this.status">
+        <a class="nav-link" [routerLink]="['/stepregister']" >Register</a>
+      </li>
+      <li class="nav-item active"  *ngIf="this.status">
+        <a class="nav-link" [routerLink]="['/stepstatus']">Status</a>
+      </li>
+      <li class="nav-item active" *ngIf="this.status">
+        <a class="nav-link" [routerLink]="['/steptakecourse']" >Register in Programme</a>
+      </li>
+      <li class="nav-item active" *ngIf="this.status">
+        <a class="nav-link" [routerLink]="['/coursetaken']" >Current Course</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/homefaq']">Faq</a>
+      </li>
+      </ul>
+      <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+      <ul class="navbar-nav ms-auto">
+      <li class="nav-item active justify-content-end"  *ngIf="isloggedin()">
+        <div class="dropdown">
+          <a class="nav-link dropdown-toggle nav-item" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            {{user_name()}}
+          </a>
+          <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">  
+            <li class="nav-item active">
+              <a class="nav-link" [routerLink]="['/stepmyprofile']" href="javascript:void">My Profile</a>
+            </li> 
+            <li class="nav-item active " *ngIf="isloggedin()">
+              <a class="nav-link" (click)="logout()" href="javascript:void">Logout</a>
+            </li> 
+          </ul>
+        </div>          
+      </li>
+  </ul>
+  </div>
+</nav>
+
+<!-- ========================= NGO Dashboard ============================= -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="ngo">
+  <!-- <a class="navbar-brand" href="#">NGO</a> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link"   href="javascript:void">NGO</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link"  (click)="init_step('base')" href="javascript:void">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/ngocriteria']">Criteria</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/ngoorganizations']">Organizations</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/ngoFundingNorms']">Funding Norms</a>
+      </li>
+      <li class="nav-item active"  *ngIf="!this.status_ngo">
+        <a class="nav-link" [routerLink]="['/ngoregister']">Register</a>
+      </li>
+      <li class="nav-item active" *ngIf="this.status_ngo">
+        <a class="nav-link" [routerLink]="['/ngostatus']" >Status</a>
+      </li>
+      <li class="nav-item active" *ngIf="this.status_ngo">
+        <a class="nav-link" [routerLink]="['/ngoaddcourses']" >Add Programmes</a>
+      </li>
+      <li class="nav-item active" *ngIf="this.status_ngo">
+        <a class="nav-link" [routerLink]="['/ngoprogrammes']" >My Programmes</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/homefaq']">Faq</a>
+      </li>
+      </ul>
+      <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+      <ul class="navbar-nav ms-auto">
+      <li class="nav-item active justify-content-end"  *ngIf="isloggedin()">
+        <div class="dropdown">
+          <a class="nav-link dropdown-toggle nav-item" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            {{user_name()}}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">  
+            <li class="nav-item active">
+              <a class="nav-link" [routerLink]="['/ngomyprofile']" href="javascript:void">My Profile</a>
+            </li> 
+            <li class="nav-item active">
+              <a class="nav-link" (click)="logout()" href="javascript:void">Logout</a>
+            </li> 
+          </ul>
+        </div>          
+      </li>
+  </ul>
+  </div>
+</nav>
+
+<!-- ==========================Admin Dashboard ===================================-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="admin">
+  <!-- <a class="navbar-brand" href="#">ADMIN</a> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item active">
+        <a class="nav-link"  (click)="init_step('base')" href="javascript:void">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/adminlogin']" *ngIf="!admin_islogged_in()">Login</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/adminngosection']" *ngIf="admin_islogged_in()">NGO's</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/admintraineesection']" *ngIf="admin_islogged_in()">Tarinees</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/admintraineetakencourse']" *ngIf="admin_islogged_in()">Trainee's Taken Course</a>
+      </li>
+      <li class="nav-item active float-right" *ngIf="admin_islogged_in()">
+        <a class="nav-link" href="javascript:void" (click)="admin_logout()">Logout</a>
+      </li> 
+  </ul>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  </div>
+  <router-outlet></router-outlet>

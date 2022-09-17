@@ -1,0 +1,82 @@
+<!-- <div class="container ">
+    <div class="col-lg-6 mx-auto mt-5">
+    <form #LoginForm="ngForm" (ngSubmit)="onSubmit(LoginForm.value)" class="form-control">
+     
+     <p>
+        <label for="admin_Id">Admin Id</label>
+        <input type="number" name="admin_Id"  class="form-control" ngModel>
+     </p>
+     
+      <p>
+        <label for="admin_Password">Password</label>
+        <input type="password" name="admin_Password" ngModel class="form-control">
+      </p>
+     
+      <p class="mx-auto">
+      <button type="submit"  class="btn btn-dark " >Submit</button>
+      </p>
+
+      <div class="text-danger">
+        <p>{{msg}}</p>
+        </div>
+      
+    </form>
+    </div>
+    </div> -->
+
+    <!-- <form #regform="ngForm" novalidate (ngSubmit)="onSubmit(regform.value)">
+      <h1>Admin Login</h1>
+      <pre></pre>
+      <div class="form-group">
+          <label for="admin_Id">Admin Id</label><br>
+          <input #admin_Id="ngModel" required minlength="2" maxlength="14" type="number" name="firstname" class="form-control" placeholder="Enter your Admin Id" ngModel>
+          <div *ngIf="admin_Id.touched && admin_Id.invalid" class="alert alert-danger">
+              <p *ngIf="admin_Id.hasError('required')">First name is required</p>
+              <p *ngIf="admin_Id.hasError('minlength')">Minimum length should be atleast 2</p>
+          </div>
+      </div>
+      <pre></pre>
+      <div class="form-group">
+          <label for="admin_Password">Admin Password</label><br> 
+          <input #admin_Password="ngModel" type="password" name="password" class="form-control" placeholder="Enter your Password" ngModel>
+          <div *ngIf="admin_Password.touched && admin_Password.invalid" class="alert alert-danger">
+              <p *ngIf="admin_Password.hasError('required')">Password is required</p>
+              <p *ngIf="admin_Password.hasError('minlength')">Minimum length should be atleast 8</p>
+          </div>
+      </div>
+      <pre></pre>
+      <div class="form-submit">
+          <button type="submit" class="btn btn-primary" [disabled]="!regform.valid" value="submit" >Submit</button>
+      </div>
+  </form> -->
+
+  <body>
+    <form #regform="ngForm" novalidate (ngSubmit)="onSubmit(regform.value)">
+      <div class="shdw">
+      <h1>Admin Login</h1>
+      <pre></pre>
+      <div class="form-group">
+          <label for="email">Admin Id</label><br>
+          <input #admin_Id="ngModel" required  type="number" name="admin_Id" class="form-control"  ngModel>
+      </div>
+      <pre></pre>
+      <div class="form-group">
+          <label for="admin_Password">Password</label><br> 
+          <input #password="ngModel" type="password" required name="admin_Password" class="form-control" placeholder="Enter your Password" ngModel>
+          <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+              <p *ngIf="password.hasError('required')">Password is required</p>
+              <p *ngIf="password.hasError('minlength')">Minimum length should be atleast 8</p>
+          </div>
+      </div>
+      <pre></pre>
+      <div class="form-submit">
+          <button type="submit" class="btn btn-primary" [disabled]="!regform.valid" value="submit" >Submit</button>
+      </div>
+      <div class="text-danger">
+          {{msg}}
+      </div>
+  </div>
+  </form>
+</body>
+
+  

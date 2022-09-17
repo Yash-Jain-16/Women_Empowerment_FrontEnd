@@ -1,0 +1,109 @@
+<body>
+<form #regform="ngForm" novalidate (ngSubmit)="onSubmit(regform.value)">
+    <div class="shdw">
+    <h1>User Registration</h1>
+    <pre></pre>
+    <div class="form-group"> 
+        <label for="firstname">First Name</label><br>
+        <input #firstname="ngModel" required minlength="2" maxlength="14" type="text" name="firstname" class="form-control" placeholder="Enter your First Name" ngModel>
+        <div *ngIf="firstname.touched && firstname.invalid" class="alert alert-danger">
+            <p *ngIf="firstname.hasError('required')">First name is required</p>
+            <p *ngIf="firstname.hasError('minlength')">Minimum length should be atleast 2</p>
+        </div>
+    </div>
+    <pre></pre>
+    <div class="form-group">
+        <label for="lastname">Last Name </label><br> 
+        <input #lastname="ngModel" required minlength="2" maxlength="14" type="text" name="lastname" class="form-control" placeholder="Enter your Last Name" ngModel>
+        <div *ngIf="lastname.touched && lastname.invalid" class="alert alert-danger">
+            <p *ngIf="lastname.hasError('required')">Last name is required</p>
+            <p *ngIf="lastname.hasError('minlength')">Minimum length should be atleast 2</p>
+        </div>
+    </div>
+    <pre></pre>
+    <div class="form-group">
+        <label for="password">Password</label><br> 
+        <input #password="ngModel" type="password" name="password" class="form-control" placeholder="Enter your Password" ngModel>
+        <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+            <p *ngIf="password.hasError('required')">Password is required</p>
+            <p *ngIf="password.hasError('minlength')">Minimum length should be atleast 8</p>
+        </div>
+    </div>
+    <!-- <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" ngModel name="password"
+            #password="ngModel" appPasswordPattern required>
+        <span class="text-danger"
+            *ngIf="(password.touched || regForm.submitted) && password.errors?.['required']">
+            Password is required
+        </span>
+        <span class="text-danger" *ngIf="password.touched && password.errors?.['invalidPassword']">
+            Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+            letter and 1 number
+        </span>
+    </div>
+    <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" class="form-control" ngModel
+            name="confirmPassword" #confirmPassword="ngModel" required>
+        <span class="text-danger"
+            *ngIf="(confirmPassword.touched || regForm.submitted) && confirmPassword.errors?.['required']">
+            Confirm Password is required
+        </span>
+        <span class="text-danger"
+            *ngIf="confirmPassword.touched && confirmPassword.errors?.['passwordMismatch']">
+            Passwords doesnot match
+        </span>
+    </div> -->
+    <pre></pre>
+    <div class="form-group">
+        <label for="password">Confirm Password</label><br> 
+        <input #cpassword="ngModel" type="password" name="cpassword" class="form-control" placeholder="Confirm your Password" ngModel>
+        <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+            <p *ngIf="cpassword.hasError('required')">Password must be re-entered</p>
+            <p *ngIf="cpassword.hasError('passwordMismatch')">Password does not match!</p>
+        </div>
+    </div>
+    <pre></pre>
+    <div class="form-group">
+        <label for="email">Email</label><br>
+        <input #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="text" name="email" class="form-control" placeholder="name@gmail.com" ngModel>
+        <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+            <p *ngIf="email.hasError('required')">Email is required</p>
+            <p *ngIf="email.hasError('pattern')">Enter valid email</p>
+        </div>
+    </div>
+    <pre></pre>
+    <div class="form-group">
+        <label for="date_of_Birth">Date of Birth</label><br>
+        <input #date_of_Birth="ngModel" type="date" name="date_of_Birth" class="form-control" ngModel>
+        <div *ngIf="date_of_Birth.touched && date_of_Birth.invalid" class="alert alert-danger">
+            <p *ngIf="date_of_Birth.hasError('required')">DOB is required</p>
+        </div>
+    </div>
+    <pre></pre>
+    <div class="form-group">
+        <label for="contact">Phone Number</label><br>
+        <input #contact="ngModel" required  pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$" type="text" name="contact" class="form-control" placeholder="Enter your Phone Number" ngModel>
+        <div *ngIf="contact.touched && contact.invalid" class="alert alert-danger">
+            <p *ngIf="contact.hasError('required')">Number is required</p>
+            <p *ngIf="contact.hasError('pattern')">Number is not valid in INDIA</p>
+        </div>
+    </div>
+    <pre></pre>
+    <div class="form-group">
+        <label for="gender">Gender</label><br>
+        <input #gender="ngModel" class="form-check-input" name="gender" ng-control="options" type="radio" value="Male"  ngModel > Male <br>
+        <input #gender="ngModel" class="form-check-input" name="gender" ng-control="options" type="radio" value="Female"  ngModel > Female <br>
+        <input #gender="ngModel" class="form-check-input" name="gender" ng-control="options" type="radio" value="Others"  ngModel > Others <br>
+        <div *ngIf="gender.touched && gender.invalid" class="alert alert-danger">
+            <p *ngIf="gender.hasError('required')">Gender is required</p>
+        </div>
+    </div>
+    <pre></pre>
+    <div class="text-center">
+    <button type="submit" class="btn btn-primary" [disabled]="!regform.valid" value="submit">Submit</button>
+    </div>
+    </div>
+</form>    
+</body>

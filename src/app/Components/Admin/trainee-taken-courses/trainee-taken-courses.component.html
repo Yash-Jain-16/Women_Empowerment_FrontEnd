@@ -1,0 +1,51 @@
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-lg-3 d-flex justify-content-center"  *ngFor="let programmes of trainees_taken_course_list ">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{programmes.step_Id}}</h5>
+                  <h5 class="card-title">{{programmes.firstname}}</h5>
+                  <h5 class="card-title">{{programmes.lastname}}</h5>
+                  <h5 class="card-title">{{programmes.sector}}</h5>
+                  <h5 class="card-title">{{programmes.coursename}}</h5>
+                  <h5 class="card-title">{{programmes.ngo_Name}}</h5>
+                  <h5 class="card-title">{{programmes.date_of_Register}}</h5>
+                </div>
+              </div>
+          </div>
+    </div>
+</div> -->
+
+
+
+<br>
+<br>
+<div class="container">
+<table class="table table-hover" style="background-image:linear-gradient(to right, rgba(255, 127, 0,0.6), rgba(50,205,50,0.7));">
+  <thead style="background-image:linear-gradient(to right, rgba(255, 127, 0,1.0), rgba(50,205,50,1.0));">
+    <tr>
+      <th scope="col">Step Id</th>
+      <th scope="col">Firstname</th>
+      <th scope="col">Lastname</th>
+      <th scope="col">Sector</th>
+      <th scope="col">Coursename</th>
+      <th scope="col">Ngo Name</th>
+      <th scope="col">Date of Register</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let programmes of trainees_taken_course_list">
+      <td>{{programmes.step_Id}}</td>
+      <td>{{programmes.firstname}}</td>
+      <td>{{programmes.lastname}}</td>
+      <td>{{programmes.sector}}</td>
+      <td>{{programmes.coursename}}</td>
+      <td>{{programmes.ngo_Name}}</td>
+      <td>{{programmes.date_of_Register|date}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<br>
+<br>
+
