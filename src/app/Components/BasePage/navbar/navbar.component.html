@@ -50,6 +50,9 @@
           <a class="nav-link"  href="javascript:void" (click)="init_step('admin')" *ngIf="!isloggedin()">ADMIN</a>
         </li>
         <li class="nav-item active">
+          <a class="nav-link"  href="/stephome"  *ngIf="!isloggedin()">STEPHOME</a>
+        </li>
+        <li class="nav-item active">
           <a class="nav-link" [routerLink]="['/homefaq']">FAQ</a>
         </li> 
     </ul>

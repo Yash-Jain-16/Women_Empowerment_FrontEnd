@@ -23,6 +23,7 @@ import { NGOStatusComponent } from './Components/NGO/ngo-status/ngo-status.compo
 import { NGOMyProgrammesComponent } from './Components/NGO/ngomy-programmes/ngomy-programmes.component';
 import { CourseTakenComponent } from './Components/STEP/course-taken/course-taken.component';
 import { STEPAboutUsComponent } from './Components/STEP/step-about-us/step-about-us.component';
+import { STEPHomeComponent } from './Components/STEP/step-home/step-home.component';
 import { STEPLandingComponent } from './Components/STEP/step-landing/step-landing.component';
 import { STEPProfileComponent } from './Components/STEP/step-profile/step-profile.component';
 import { STEPREGISTERComponent } from './Components/STEP/step-register/step-register.component';
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path:"aboutus",component:AboutUsComponent},
   {path:"homefaq",component:FAQComponent},
   // STEP Routes=====================================================
+  {path:"stephome",component:STEPHomeComponent},
   {path:"stepaboutus",component:STEPAboutUsComponent},
   {path:"steplanding",component:STEPLandingComponent},
   {path:"stepregister",component:STEPREGISTERComponent},

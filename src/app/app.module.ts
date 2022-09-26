@@ -39,6 +39,8 @@ import { CourseTakenComponent } from './Components/STEP/course-taken/course-take
 import { NGOMyProgrammesComponent } from './Components/NGO/ngomy-programmes/ngomy-programmes.component';
 import { STEPProfileComponent } from './Components/STEP/step-profile/step-profile.component';
 import { NGOProfileComponent } from './Components/NGO/ngo-profile/ngo-profile.component';
+import { STEPNavbarComponent } from './Components/STEP/step-navbar/step-navbar.component';
+import { STEPHomeComponent } from './Components/STEP/step-home/step-home.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,9 @@ import { NGOProfileComponent } from './Components/NGO/ngo-profile/ngo-profile.co
     CourseTakenComponent,
     NGOMyProgrammesComponent,
     STEPProfileComponent,
-    NGOProfileComponent
+    NGOProfileComponent,
+    STEPNavbarComponent,
+    STEPHomeComponent
   ],
   imports: [
     BrowserModule,

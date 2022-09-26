@@ -63,6 +63,7 @@ export class STEPREGISTERComponent implements OnInit {
     this.step_service.User_STEP_Register(this.step_user).subscribe();
     alert("Registred Suceesfullly");
     this.route.navigate(['/home']);
+    
   }
 
   // fetching file uploaded by user
