@@ -43,6 +43,7 @@ import { NGOProfileComponent } from './Components/NGO/ngo-profile/ngo-profile.co
 import { STEPNavbarComponent } from './Components/STEP/step-navbar/step-navbar.component';
 import { STEPHomeComponent } from './Components/STEP/step-home/step-home.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     HttpClientModule,
     NgbModule,
     NgxSpinnerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgHttpLoaderModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
