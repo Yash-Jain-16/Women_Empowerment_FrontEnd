@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { NGO } from 'src/app/Models/NGO';
 import { NGOService } from 'src/app/Services/NGO/ngo.service';
 
@@ -10,7 +11,7 @@ import { NGOService } from 'src/app/Services/NGO/ngo.service';
 })
 export class NGORegisterComponent implements OnInit {
 
-  constructor(private ngo_service : NGOService,private route : Router) { }
+  constructor(private ngo_service : NGOService,private route : Router,private toastrService: ToastrService) { }
 
   new_ngo  = {} as NGO;
 
@@ -33,10 +34,10 @@ export class NGORegisterComponent implements OnInit {
       this.new_ngo.state = ngo.state;
       this.new_ngo.pincode = ngo.pincode;
     this.ngo_service.Ngo_Register(this.new_ngo).subscribe(
-      data=>{
+      (data)=>{
         console.log(data);
-      }
-    );
+        this.toastrService.success("Registered Successfully !!!",'Success');
+      });
     alert("Registred Suceesfullly");
     this.route.navigate(['/home']);
   }

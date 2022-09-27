@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AddCourseNgo } from 'src/app/Models/AddCourseNgo';
 import { NGO } from 'src/app/Models/NGO';
 import { AdminService } from 'src/app/Services/Admin/admin.service';
@@ -12,7 +13,7 @@ import { NGOService } from 'src/app/Services/NGO/ngo.service';
 })
 export class NGOAddCoursesComponent implements OnInit {
 
-  constructor(private ngo_service : NGOService,private admin_service : AdminService,private route:Router) { }
+  constructor(private ngo_service : NGOService,private admin_service : AdminService,private route:Router,private toastrService: ToastrService) { }
   a:any;
   ngo_id :number;
   ngo = {} as NGO;
@@ -27,7 +28,7 @@ export class NGOAddCoursesComponent implements OnInit {
         this.ngo=data
         if(this.ngo.is_Aprooved===0)
         {
-          alert("Wait until your NGO is approoved by Admin");
+          this.toastrService.error("Wait until your profile is  approoved by Admin", 'Invalid');
           this.route.navigate(['/ngolanding']);
         }
       });
@@ -38,9 +39,10 @@ export class NGOAddCoursesComponent implements OnInit {
   // Submitting course uploaded by NGO 
   onSubmit(course:AddCourseNgo)
   {
-    this.ngo_service.AddCourse(this.ngo_id,course).subscribe(data=>{console.log(data)});
-    alert("Submiited  Successfully");
-    window.location.reload();
+    this.ngo_service.AddCourse(this.ngo_id,course).subscribe(  (data)=>{
+      console.log(data);
+      this.toastrService.success("Registered Successfully !!!",'Success');
+    });
   }
 
 }

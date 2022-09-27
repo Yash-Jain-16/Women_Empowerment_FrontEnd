@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/Models/User';
 import { UserCnfPass } from 'src/app/Models/UserCnfPass';
 import { UserService } from 'src/app/Services/User/user.service';
@@ -11,7 +12,7 @@ import { UserService } from 'src/app/Services/User/user.service';
 })
 export class UserRegisterComponent implements OnInit {
 
-  constructor(private user_service : UserService,private route:Router) { }
+  constructor(private user_service : UserService,private route:Router,private toastrService: ToastrService) { }
 
   newuser = {} as User;
   ngOnInit(): void {
@@ -38,9 +39,10 @@ export class UserRegisterComponent implements OnInit {
         this.newuser.gender = user.gender;
 
         this.user_service.User_Register(this.newuser).subscribe(
-          data=>{console.log(data)}
+          data=>{console.log(data)
+          this.toastrService.success("Registered Successfully !!!",'Success');
+          }
         );
-        alert("Registred Sucessfully");
         this.route.navigate(['/userlogin']);
       }
   }

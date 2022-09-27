@@ -5,6 +5,7 @@ import { User } from 'src/app/Models/User';
 import { STEP } from 'src/app/Models/STEP';
 import { Router } from '@angular/router';
 import { typeWithParameters } from '@angular/compiler/src/render3/util';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-step-register',
@@ -13,7 +14,7 @@ import { typeWithParameters } from '@angular/compiler/src/render3/util';
 })
 export class STEPREGISTERComponent implements OnInit {
 
-  constructor(private step_service : STEPService,private user_service : UserService,private route : Router) { }
+  constructor(private step_service : STEPService,private user_service : UserService,private route : Router,private toastrService: ToastrService) { }
 
   user_id:any;
   user:User;
@@ -60,8 +61,11 @@ export class STEPREGISTERComponent implements OnInit {
     this.step_user.identity_Proof = user.identity_Proof;
     this.step_user.age = new Date().getFullYear()-this.year;
     console.log("Check-----",this.step_user);
-    this.step_service.User_STEP_Register(this.step_user).subscribe();
-    alert("Registred Suceesfullly");
+    this.step_service.User_STEP_Register(this.step_user).subscribe(
+      (data)=>{
+      console.log(data);
+      this.toastrService.success("Registered Successfully !!!",'Success');
+    });
     this.route.navigate(['/home']);
     
   }

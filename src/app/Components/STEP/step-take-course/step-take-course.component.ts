@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { STEP } from 'src/app/Models/STEP';
 import { Take } from 'src/app/Models/Take';
 import { AdminService } from 'src/app/Services/Admin/admin.service';
 import { STEPService } from 'src/app/Services/STEP/step.service';
+
 
 @Component({
   selector: 'app-step-take-course',
@@ -12,7 +14,7 @@ import { STEPService } from 'src/app/Services/STEP/step.service';
 })
 export class STEPTakeCourseComponent implements OnInit {
 
-  constructor(private step_service : STEPService,private admin_service : AdminService,private route : Router) { }
+  constructor(private step_service : STEPService,private admin_service : AdminService,private route : Router,private toastrService: ToastrService) { }
 
   training_course_list : Array<any> = new Array<any>();
   step_id : number;
@@ -41,7 +43,8 @@ export class STEPTakeCourseComponent implements OnInit {
         if(this.step_trainee.is_Approoved===0)
         {
           console.log("Hellooo");
-          alert("Wait until your profile is not approoved by Admin");
+          //alert("Wait until your profile is not approoved by Admin");
+          this.toastrService.error("Wait until your profile is not approoved by Admin", 'Invalid');
           this.route.navigate(['/steplanding']);
         }
       });
@@ -56,7 +59,8 @@ export class STEPTakeCourseComponent implements OnInit {
         (data:boolean)=>{
             if(data)
             {
-              alert("Can't take another course when one course is in Progress");
+              //alert("Can't take another course when one course is in Progress");
+              this.toastrService.error("Can't take another course when one course is in Progress", 'Invalid');
               this.route.navigate(['/steplanding']);
             }
         }
@@ -70,7 +74,10 @@ export class STEPTakeCourseComponent implements OnInit {
   {
       this.take.course_Id = id;
       this.take.step_Id = this.step_id;
-      this.step_service.TakeCourse(this.take).subscribe((data)=>console.log(data));
+      this.step_service.TakeCourse(this.take).subscribe(  (data)=>{
+        console.log(data);
+        this.toastrService.success("Sucessfully Registered  !!!",'Success');
+      });
       this.route.navigate(['/coursetaken']);
   }
 

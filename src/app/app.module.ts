@@ -44,6 +44,7 @@ import { STEPNavbarComponent } from './Components/STEP/step-navbar/step-navbar.c
 import { STEPHomeComponent } from './Components/STEP/step-home/step-home.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgHttpLoaderModule } from 'ng-http-loader';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
     NgbModule,
     NgxSpinnerModule,
     BrowserAnimationsModule,
-    NgHttpLoaderModule.forRoot()
+    NgHttpLoaderModule.forRoot(),
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

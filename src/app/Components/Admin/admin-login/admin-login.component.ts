@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Admin } from 'src/app/Models/Admin';
 import { AdminService } from 'src/app/Services/Admin/admin.service';
 
@@ -10,7 +11,7 @@ import { AdminService } from 'src/app/Services/Admin/admin.service';
 })
 export class AdminLoginComponent implements OnInit {
 
-  constructor(private admin_service:AdminService,private route:Router) { }
+  constructor(private admin_service:AdminService,private route:Router,private toastrService: ToastrService) { }
   msg !:string;
   ngOnInit(): void {
   }
@@ -22,6 +23,7 @@ export class AdminLoginComponent implements OnInit {
         (data:any)=>{
           if(data)
           {
+            this.toastrService.success("Succesfully Log Inn !!!",'Success');
             localStorage.setItem("admin-token",data.admin_Id);
             this.route.navigate(['/adminlanding']);
           }
