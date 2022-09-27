@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -41,6 +42,7 @@ import { STEPProfileComponent } from './Components/STEP/step-profile/step-profil
 import { NGOProfileComponent } from './Components/NGO/ngo-profile/ngo-profile.component';
 import { STEPNavbarComponent } from './Components/STEP/step-navbar/step-navbar.component';
 import { STEPHomeComponent } from './Components/STEP/step-home/step-home.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -87,7 +89,9 @@ import { STEPHomeComponent } from './Components/STEP/step-home/step-home.compone
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,5 @@
 
-<app-navbar></app-navbar>
-<app-footer></app-footer>
+<app-navbar *ngIf="show"></app-navbar>
+<app-footer *ngIf="show"></app-footer>
+
+<ngx-spinner bdColor = "rgba(250,197,7,0.8)" size = "medium" color = "#ffffff" type = "ball-fussion" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
