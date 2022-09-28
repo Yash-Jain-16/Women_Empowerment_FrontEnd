@@ -61,8 +61,8 @@
                 <div class="form-group">
                     <label for="state">State</label><br>
                     <div class="textbox">
-                        <select #state="ngModel" id="state" name="state" class="form-control" required ngModel>
-                            <option disabled selected>Enter your state</option>
+                        <select #state="ngModel" id="state" name="state" class="form-control" required [(ngModel)]="selectedvalue">
+                            <option value="">Enter your state</option>
                             <option value="Andhra Pradesh">Andhra Pradesh</option>
                             <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                             <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -130,8 +130,8 @@
                 <div class="form-group">
                     <label for="identity_Proof">Identity Proof</label><br>
                     <div class="textbox">
-                        <select #identity_Proof="ngModel" id="identity_Proof" name="identity_Proof" class="form-control" required ngModel>
-                            <option disabled selected>Select id proof</option>
+                        <select #identity_Proof="ngModel" id="identity_Proof" name="identity_Proof" class="form-control" required [(ngModel)]="selectedvalue1">
+                            <option value="">Select id proof</option>
                             <option value="PAN Card">PAN Card</option>
                             <option value="Aadhar Card">Aadhar Card</option>
                             <option value="Birth Certificate">Birth Certificate</option>

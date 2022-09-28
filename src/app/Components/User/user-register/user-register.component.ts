@@ -17,34 +17,39 @@ export class UserRegisterComponent implements OnInit {
   newuser = {} as User;
   ngOnInit(): void {
   }
+  message:string;
 
   // User Registrations
   onSubmit(user:UserCnfPass)
   {
-      if(user.cpassword !== user.password)
-      {
-        alert("Password must match");
-        this.route.navigate(['/userregister']);
-      }
-      else
-      {
-       
-        this.newuser.user_Id = user.user_Id;
-        this.newuser.firstname = user.firstname;
-        this.newuser.lastname = user.lastname;
-        this.newuser.contact=user.contact;
-        this.newuser.date_of_Birth = user.date_of_Birth;
-        this.newuser.email = user.email;
-        this.newuser.password = user.password;
-        this.newuser.gender = user.gender;
+    this.newuser.user_Id = user.user_Id;
+    this.newuser.firstname = user.firstname;
+    this.newuser.lastname = user.lastname;
+    this.newuser.contact=user.contact;
+    this.newuser.date_of_Birth = user.date_of_Birth;
+    this.newuser.email = user.email;
+    this.newuser.password = user.password;
+    this.newuser.gender = user.gender;
 
-        this.user_service.User_Register(this.newuser).subscribe(
-          data=>{console.log(data)
-          this.toastrService.success("Registered Successfully !!!",'Success');
-          }
-        );
-        this.route.navigate(['/userlogin']);
+    this.user_service.User_Register(this.newuser).subscribe(
+      data=>{console.log(data)
+      this.toastrService.success("Registered Successfully !!!",'Success');
       }
+    );
+    this.route.navigate(['/userlogin']);
+
+  }
+
+  onBlur(user:UserCnfPass)
+  {
+    if(user.cpassword !== user.password)
+    {
+      this.message="Password Must Match";
+    }
+    else
+    {
+      this.message='';
+    }
   }
 
 }

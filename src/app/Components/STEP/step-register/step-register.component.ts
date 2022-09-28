@@ -19,6 +19,9 @@ export class STEPREGISTERComponent implements OnInit {
   user_id:any;
   user:User;
   age:any;
+  selectedvalue:string="";
+  selectedvalue1:string="";
+  selectedvalue2:string="";
   
   msg : string = "Choose options";
   step_user= {} as STEP;

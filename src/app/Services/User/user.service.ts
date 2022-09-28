@@ -87,5 +87,10 @@ export class UserService {
     return this.http.get(`${this.api_url}/Total_NGO_Registrations`);
   }
 
+  UserUpdatePassword(email:string,user:User)
+  {
+    return this.http.put(`${this.api_url}/UpdateUserPassword/${email}`,user)
+  }
+
 
 }

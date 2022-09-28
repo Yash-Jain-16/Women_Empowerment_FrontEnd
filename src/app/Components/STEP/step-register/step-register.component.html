@@ -36,8 +36,8 @@
                 <div class="form-group">
                     <label for="is_Married">Marital Status</label><br>
                     <div class="textbox">
-                        <select #is_Married="ngModel" id="is_Married" name="is_Married" class="form-control" placeholder="Select" required ngModel>
-                            <option value="Select id proof" >Select id proof</option>
+                        <select #is_Married="ngModel" id="is_Married" name="is_Married" class="form-control" placeholder="Select" required [(ngModel)]="selectedvalue2">
+                            <option value="" >Select Marital Status</option>
                             <option value="Single">Single</option>
                             <option value="Married">Married</option>
                             <option value="Widowed">Widowed</option>
@@ -90,8 +90,8 @@
                 <div class="form-group">
                     <label for="state">State</label><br>
                     <div class="textbox">
-                        <select #state="ngModel" id="state" name="state" class="form-control" required ngModel>
-                            <option selected>Enter your state</option>
+                        <select #state="ngModel" id="state" name="state" class="form-control" required [(ngModel)]="selectedvalue">
+                            <option value="" selected>Select your state</option>
                             <option value="Andhra Pradesh">Andhra Pradesh</option>
                             <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                             <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -167,8 +167,8 @@
                             <option value="Passport">Passport</option>
                             <option value="Election Card">Election Card</option>
                         </select> -->
-                        <select class="form-control" aria-label="Default select example" name="identity_Proof" required ngModel>
-                            <option selected >Choose Identity Proof</option>
+                        <select  class="form-control" aria-label="Default select example" name="identity_Proof" required [(ngModel)]="selectedvalue1">
+                            <option value="">Choose Identity Proof</option>
                             <option value="PAN Card">PAN Card</option>
                             <option value="Aadhar Card">Aadhar Card</option>
                             <option value="Birth Certificate">Birth Certificate</option>

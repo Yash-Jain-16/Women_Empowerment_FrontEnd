@@ -14,6 +14,9 @@ export class NGORegisterComponent implements OnInit {
   constructor(private ngo_service : NGOService,private route : Router,private toastrService: ToastrService) { }
 
   new_ngo  = {} as NGO;
+  selectedvalue:string="";
+  selectedvalue1:string="";
+  selectedvalue2:string="";
 
   ngOnInit(): void {
   }

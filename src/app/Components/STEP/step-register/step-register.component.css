@@ -45,6 +45,8 @@ body{
     overflow: hidden;
     font-size: 18px;
     margin: 5px 0;
+    box-shadow: 0 0 0 rgb(255, 255, 255);
+    background-color:transparent;
 }
 
 .btn{
@@ -77,7 +79,7 @@ body{
     padding: 10px;
     font-size: 21px;
     width: 95%;
-    height: 120vh;
+    height: 90%;
     margin-left: 40px;
     margin-bottom: 50px;
     margin-top: 50px;
@@ -94,7 +96,8 @@ body{
     text-shadow: 3px 3px 3px #ffffff;
 }
 
-.form-control:focus {
+/* .form-control:focus {
     border-color: #ff80ff!important;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(255, 127, 0, 0.5)!important;
-}
+} */
+
