@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit,Input } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/Services/Admin/admin.service';
 import { UserService } from 'src/app/Services/User/user.service';
 
@@ -18,7 +19,7 @@ export class NavbarComponent implements OnInit{
   status_ngo:boolean =false;
   
 
-  constructor(private route : Router,private user_service : UserService,private admin_service :AdminService) { }
+  constructor(private route : Router,private user_service : UserService,private admin_service :AdminService,private toastrService: ToastrService) { }
 
   
   step_status:boolean=true;
@@ -68,7 +69,7 @@ export class NavbarComponent implements OnInit{
         }
         else
         {
-          alert("Login First");
+         this.toastrService.warning("Login to view Content",'Invalid');
           this.route.navigate(['/home']);
         }
       }
@@ -100,7 +101,7 @@ export class NavbarComponent implements OnInit{
         }
         else
         {
-          alert("Login First");
+          this.toastrService.warning("Login to view Content",'Invalid');
           this.route.navigate(['/home']);
         }
       }
